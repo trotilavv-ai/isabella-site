@@ -1,0 +1,347 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>hello, isabella.</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&display=swap');
+
+* { box-sizing: border-box; }
+
+:root {
+  --red: #ff3030;
+  --green: #b6ffb0;
+  --bg: #080909;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: #ddd;
+  font-family: 'Share Tech Mono', monospace;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  background: repeating-linear-gradient(
+    transparent 0px,
+    #ffffff06 1px,
+    transparent 2px,
+    transparent 4px
+  );
+}
+
+.container {
+  max-width: 850px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 30px 0 50px;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #333;
+  padding-bottom: 15px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #777;
+}
+
+.logo { color: var(--red); }
+
+.status { color: var(--green); }
+
+.hero {
+  margin-top: 100px;
+  margin-bottom: 70px;
+}
+
+.eyebrow {
+  font-size: 12px;
+  color: var(--red);
+  letter-spacing: 4px;
+  animation: flicker 4s infinite;
+}
+
+h1 {
+  font-family: 'VT323', monospace;
+  font-size: clamp(65px, 14vw, 125px);
+  font-weight: normal;
+  line-height: .8;
+  margin: 25px 0;
+  letter-spacing: -2px;
+  color: #f2f2f2;
+}
+
+h1 span {
+  color: var(--red);
+  display: block;
+}
+
+.glitch {
+  animation: glitch .35s steps(2) 2;
+}
+
+.subtitle {
+  color: #888;
+  font-size: 13px;
+  line-height: 2;
+  max-width: 500px;
+}
+
+.terminal {
+  background: #0d100d;
+  border: 1px solid #292d29;
+  padding: 22px;
+  margin-top: 35px;
+  box-shadow: 0 0 30px #ff000008;
+}
+
+.terminal-head {
+  color: #777;
+  border-bottom: 1px solid #252925;
+  padding-bottom: 12px;
+  margin-bottom: 18px;
+  font-size: 11px;
+}
+
+.line {
+  font-size: 13px;
+  line-height: 2;
+  overflow-wrap: anywhere;
+}
+
+.prompt { color: var(--red); }
+.green { color: var(--green); }
+.dim { color: #777; }
+
+.cursor {
+  display: inline-block;
+  width: 8px;
+  height: 15px;
+  background: var(--red);
+  vertical-align: middle;
+  animation: blink 1s steps(2) infinite;
+}
+
+.section {
+  border-top: 1px solid #292929;
+  padding: 28px 0;
+  margin-top: 35px;
+}
+
+h2 {
+  color: var(--red);
+  font-size: 13px;
+  font-weight: normal;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+}
+
+.message {
+  max-width: 580px;
+  color: #bcbcbc;
+  font-size: 14px;
+  line-height: 2;
+}
+
+.message strong {
+  color: white;
+  font-weight: normal;
+}
+
+.btn {
+  background: transparent;
+  border: 1px solid var(--red);
+  color: var(--red);
+  padding: 13px 18px;
+  margin-top: 20px;
+  font: 12px 'Share Tech Mono', monospace;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: .2s;
+}
+
+.btn:hover {
+  color: black;
+  background: var(--red);
+  box-shadow: 0 0 20px #ff303044;
+}
+
+#secret {
+  display: none;
+  margin-top: 25px;
+  color: var(--green);
+  line-height: 2;
+  font-size: 13px;
+}
+
+.footer {
+  margin-top: 65px;
+  border-top: 1px solid #292929;
+  padding-top: 17px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  color: #555;
+  font-size: 10px;
+}
+
+.big-heart {
+  color: var(--red);
+  font-size: 22px;
+}
+
+@keyframes blink {
+  to { visibility: hidden; }
+}
+
+@keyframes flicker {
+  0%, 96%, 98%, 100% { opacity: 1; }
+  97%, 99% { opacity: .25; }
+}
+
+@keyframes glitch {
+  0% { transform: translateX(0); text-shadow: 0 0 transparent; }
+  25% { transform: translateX(-3px); text-shadow: 3px 0 red; }
+  50% { transform: translateX(3px); text-shadow: -3px 0 lime; }
+  75% { transform: translateX(-1px); }
+  100% { transform: translateX(0); }
+}
+
+@media(max-width: 500px) {
+  .hero { margin-top: 75px; }
+  .terminal { padding: 15px; }
+  .line { font-size: 11px; }
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+  <nav class="nav">
+    <div class="logo">fsociety // personal</div>
+    <div class="status">● SYSTEM ONLINE</div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="eyebrow">[ PRIVATE MESSAGE FOUND ]</div>
+
+      <h1 id="title">
+        hello,<br>
+        <span>isabella.</span>
+      </h1>
+
+      <div class="subtitle">
+        this is not a hack.<br>
+        just a little website someone made for you.
+      </div>
+
+      <div class="terminal">
+        <div class="terminal-head">
+          TERMINAL — session_001 — localhost
+        </div>
+
+        <div class="line">
+          <span class="prompt">guest@fsociety:~$</span> whoami
+        </div>
+        <div class="line green">someone who wanted to make you smile</div>
+
+        <div class="line" style="margin-top:12px">
+          <span class="prompt">guest@fsociety:~$</span> cat message.txt
+        </div>
+        <div class="line">
+          hey Isabella. honestly, idk how to make websites
+          that well yet, but I thought this would be cool lol.
+        </div>
+
+        <div class="line" style="margin-top:12px">
+          <span class="prompt">guest@fsociety:~$</span>
+          <span class="green">message delivered</span>
+          <span class="cursor"></span>
+        </div>
+      </div>
+
+      <button class="btn" onclick="runGlitch()">
+        [ RUN SOMETHING ]
+      </button>
+    </section>
+
+    <section class="section">
+      <h2>// A MESSAGE FOR YOU</h2>
+
+      <div class="message">
+        People spend way too much time trying to be
+        someone they're not.<br><br>
+
+        But you have your own style, your own personality
+        and your own way of seeing things.<br><br>
+
+        <strong>That's what makes you interesting.</strong><br><br>
+
+        Anyway, enough deep stuff. I just wanted to make
+        you something different. Hope you like it :)
+      </div>
+
+      <button class="btn" onclick="revealSecret()">
+        [ THERE'S ONE MORE FILE ]
+      </button>
+
+      <div id="secret">
+        <div>> opening secret.txt...</div>
+        <br>
+        <div>hello, friend.</div>
+        <div>you are pretty cool, you know that?</div>
+        <div>don't let the world make you forget it.</div>
+        <br>
+        <div class="big-heart">♥</div>
+        <div>EOF_</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>this site does absolutely nothing illegal lol</span>
+    <span>made for Isabella ♡</span>
+  </footer>
+
+</div>
+
+<script>
+function runGlitch() {
+  const title = document.getElementById("title");
+  title.classList.remove("glitch");
+  void title.offsetWidth;
+  title.classList.add("glitch");
+
+  const eyebrow = document.querySelector(".eyebrow");
+  eyebrow.textContent = "[ MESSAGE RECEIVED ]";
+
+  setTimeout(() => {
+    eyebrow.textContent = "[ PRIVATE MESSAGE FOUND ]";
+  }, 1800);
+}
+
+function revealSecret() {
+  const secret = document.getElementById("secret");
+
+  secret.style.display =
+    secret.style.display === "block" ? "none" : "block";
+}
+</script>
+
+</body>
+</html>
